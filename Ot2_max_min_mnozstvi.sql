@@ -3,7 +3,7 @@ SELECT
 	(SELECT  
 		DISTINCT (max(hbf.current_year)) 
 	FROM t_hana_borova_project_sql_primary_final hbf) AS max_min_year ,
-	round((avg(hbf.avg_wage_per_year) * 12)/avg(hbf.price), 2) AS max_possible_puchase
+	round((avg(hbf.avg_wage_per_year))/avg(hbf.price), 2) AS max_possible_puchase
 FROM t_hana_borova_project_sql_primary_final hbf
 WHERE hbf.current_year  = 
 		(SELECT 
@@ -17,7 +17,7 @@ SELECT
 	(SELECT  
 	 	DISTINCT (min(hbf.current_year)) 
 	 FROM t_hana_borova_project_sql_primary_final hbf) as max_min_year,
-	round((avg(hbf.avg_wage_per_year) *12) /avg(hbf.price), 2) as max_possible_puchase
+	round((avg(hbf.avg_wage_per_year)) /avg(hbf.price), 2) as max_possible_puchase
 FROM t_hana_borova_project_sql_primary_final hbf
 WHERE hbf.current_year = 
 		(SELECT 
